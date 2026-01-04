@@ -15,84 +15,60 @@
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#0a0d1f;color:var(--text);overflow-x:hidden;}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 50px;}
-header h1{font-size:30px;color:var(--neon2);}
-header button{padding:10px 25px;background:linear-gradient(135deg,var(--neon1),var(--neon2));border:none;border-radius:30px;color:#000;font-weight:600;cursor:pointer;}
-.hero{padding:60px 50px;display:flex;justify-content:space-between;align-items:center;}
-.hero-text h1{font-size:60px;color:var(--neon1);animation:glow 2s ease-in-out infinite alternate;}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 50px;flex-wrap:wrap;}
+header h1{font-size:28px;color:var(--neon2);}
+header button{padding:10px 25px;background:linear-gradient(135deg,var(--neon1),var(--neon2));border:none;border-radius:30px;color:#000;font-weight:600;cursor:pointer;margin-top:10px;}
+.hero{padding:40px 20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;}
+.hero-text h1{font-size:48px;color:var(--neon1);animation:glow 2s ease-in-out infinite alternate;}
 @keyframes glow{from{text-shadow:0 0 8px var(--neon1),0 0 20px var(--neon2);}to{text-shadow:0 0 20px var(--neon2),0 0 40px var(--neon1);}}
-.hero-text p{margin:15px 0;opacity:.8;font-size:18px;}
-.hero-img img{width:380px;animation:float 4s ease-in-out infinite;}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+.hero-text p{margin:15px 0;opacity:.8;font-size:16px;}
+.hero-img img{width:100%;max-width:300px;animation:float 4s ease-in-out infinite;margin-top:20px;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
-.store{padding:40px 50px;}
-.store h2{font-size:28px;margin-bottom:20px;color:var(--neon2);border-left:4px solid var(--neon1);padding-left:8px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+.store{padding:20px;}
+.store h2{font-size:24px;margin-bottom:20px;color:var(--neon2);border-left:4px solid var(--neon1);padding-left:6px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
 
 /* CARD ADVANCED */
-.card{
-  position:relative;
-  background:rgba(255,255,255,.05);
-  border-radius:16px;
-  overflow:hidden;
-  width:auto;
-  transition:0.5s;
-  animation:fadeIn 1s ease;
-}
+.card{position:relative;background:rgba(255,255,255,.05);border-radius:16px;overflow:hidden;transition:0.5s;animation:fadeIn 1s ease;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-.card:hover{transform:scale(1.07);box-shadow:0 0 25px var(--neon2),0 0 50px var(--neon1);}
+.card:hover{transform:scale(1.05);box-shadow:0 0 20px var(--neon2),0 0 40px var(--neon1);}
 .card img{width:100%;height:auto;display:block;object-fit:cover;}
 
 /* ELECTRIC SPARKS */
-.card::before, .card::after{
-  content:"";
-  position:absolute;
-  width:200%;
-  height:200%;
-  top:-50%;
-  left:-50%;
-  background-repeat:no-repeat;
-  background-image:
-    radial-gradient(circle at 30% 30%,var(--neon1), transparent 40%),
-    radial-gradient(circle at 70% 70%,var(--neon2), transparent 40%);
-  opacity:0;
-  transition:0.8s;
-  z-index:1;
-}
-.card:hover::before,
-.card:hover::after{opacity:.4;animation:electro 1s infinite;}
+.card::before, .card::after{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background-repeat:no-repeat;background-image:radial-gradient(circle at 30% 30%,var(--neon1), transparent 40%),radial-gradient(circle at 70% 70%,var(--neon2), transparent 40%);opacity:0;transition:0.8s;z-index:1;}
+.card:hover::before,.card:hover::after{opacity:.35;animation:electro 1s infinite;}
 @keyframes electro{0%,100%{transform:rotate(0deg);}50%{transform:rotate(10deg);}}
 
-.card .content{
-  padding:12px 16px;
-  position:relative;
-  z-index:2;
-}
-.card .content h3{font-size:20px;color:var(--neon1);margin-bottom:10px;}
-.card .select{
-  width:100%;
-  padding:8px;
-  border-radius:8px;
-  border:none;
-  background:rgba(255,255,255,.1);
-  margin-bottom:10px;
-  color:#fff;
-}
-.card .buy-btn{
-  width:100%;
-  padding:10px;
-  border:none;
-  border-radius:20px;
-  background:linear-gradient(135deg,var(--neon2),var(--accent));
-  color:#000;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
-}
+.card .content{padding:12px 16px;position:relative;z-index:2;}
+.card .content h3{font-size:18px;color:var(--neon1);margin-bottom:8px;}
+.card .select{width:100%;padding:8px;border-radius:8px;border:none;background:rgba(255,255,255,.1);margin-bottom:8px;color:#fff;font-size:14px;}
+.card .buy-btn{width:100%;padding:10px;border:none;border-radius:20px;background:linear-gradient(135deg,var(--neon2),var(--accent));color:#000;font-weight:600;cursor:pointer;transition:0.3s;font-size:14px;}
 .card .buy-btn:hover{box-shadow:0 0 20px var(--neon2);}
 
-/* FOOTER */
 footer{padding:20px;text-align:center;opacity:.6;}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+header{flex-direction:column;align-items:flex-start;}
+.hero{flex-direction:column;align-items:flex-start;}
+.hero-text h1{font-size:36px;}
+.hero-text p{font-size:14px;}
+.hero-img img{max-width:250px;}
+.store h2{font-size:22px;}
+.card .content h3{font-size:16px;}
+.card .select,.card .buy-btn{font-size:13px;}
+}
+
+@media (max-width:480px){
+.hero-text h1{font-size:28px;}
+.hero-text p{font-size:13px;}
+.hero-img img{max-width:200px;}
+.store{padding:15px;}
+.grid{gap:15px;}
+.card .content h3{font-size:14px;}
+.card .select,.card .buy-btn{font-size:12px;padding:8px;}
+}
 </style>
 </head>
 <body>
@@ -105,7 +81,7 @@ footer{padding:20px;text-align:center;opacity:.6;}
 <section class="hero">
 <div class="hero-text">
 <h1>Electric Game Store</h1>
-<p>Get your codes with lightning speed! ⚡</p>
+<p>Get your codes fast and secure! ⚡</p>
 </div>
 <div class="hero-img">
 <img src="https://d.top4top.io/p_3656uwzt51.gif" alt="Hero GIF">
@@ -116,7 +92,6 @@ footer{padding:20px;text-align:center;opacity:.6;}
 <h2>Available Codes</h2>
 <div class="grid">
 
-<!-- CALL OF DUTY -->
 <div class="card">
 <img src="https://e.top4top.io/p_3656e0rza2.png" alt="Call of Duty">
 <div class="content">
@@ -132,7 +107,6 @@ footer{padding:20px;text-align:center;opacity:.6;}
 </div>
 </div>
 
-<!-- FORTNITE -->
 <div class="card">
 <img src="https://f.top4top.io/p_36568tml23.png" alt="Fortnite">
 <div class="content">
@@ -147,7 +121,6 @@ footer{padding:20px;text-align:center;opacity:.6;}
 </div>
 </div>
 
-<!-- ROBLOX -->
 <div class="card">
 <img src="https://g.top4top.io/p_36566g1d44.png" alt="Roblox">
 <div class="content">
@@ -162,7 +135,6 @@ footer{padding:20px;text-align:center;opacity:.6;}
 </div>
 </div>
 
-<!-- FIFA -->
 <div class="card">
 <img src="https://i.top4top.io/p_3656c36jb6.png" alt="FIFA">
 <div class="content">
